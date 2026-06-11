@@ -1,0 +1,117 @@
+% ============================================================
+% page.tex – Seitenstil, Fußnoten, Spacing-Helper
+% ============================================================
+% Diese Datei enthält feinabgestimmte Layout-Definitionen
+% (Fußnoten, Microtype-Kerning, MS-Word-kompatibles Spacing).
+% Eine Anpassung ist normalerweise nicht nötig.
+% ============================================================
+
+
+% Toleranz für Zeilenumbrüche lockern (vermeidet "Overfull hbox")
+\sloppy
+
+
+% ============================================================
+% Kopf- und Fußzeile zurücksetzen
+% ============================================================
+\fancyhf{}
+\rfoot{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+
+% ============================================================
+% Hilfsmittel
+% ============================================================
+% Zelle mit Zeilenumbrüchen in Tabellen:
+%   \specialcell{Zeile 1\\ Zeile 2}
+\newcommand{\specialcell}[2][c]{%
+  \begin{tabular}[#1]{@{}t@{}}#2\end{tabular}}
+
+
+% ============================================================
+% Blockzitat-Umgebung
+% ============================================================
+% Eingerückt, einzeilig, kleinere Schrift – für wörtliche Zitate
+% ab ca. drei Zeilen.
+\renewenvironment{quotation}{
+  \leftskip1cm
+  \rightskip1cm
+  \noindent
+  \setstretch{1}
+  \small
+}
+
+
+% ============================================================
+% Fußnoten-Stil
+% ============================================================
+% Schmalere, dünne Trennlinie statt der Standard-Linie
+\renewcommand\footnoterule{\kern-3pt \hrule width 3in height 0.7pt \hskip3pt \kern 2.6pt}
+
+% 2 mm Einrückung nach der Fußnotennummer (SRH-Layout)
+\let\oldfootnote\footnote
+\renewcommand\footnote[1]{%
+  \oldfootnote{\hspace{2mm}#1}}
+
+% Fußnoten-Schriftgröße fest auf 10 pt
+\renewcommand{\footnotesize}{\fontsize{10pt}{11pt}\selectfont}
+
+
+% ============================================================
+% Microtype-Feineinstellung
+% ============================================================
+% Zusätzliches Spacing um Gedankenstriche, Anführungszeichen und
+% Klammern. Gilt nur für Helvetica/Arial fett (family={qhv}, series={b}).
+\SetExtraKerning[unit=space]
+  {
+    encoding={*}, family={qhv}, series={b}, size={normalsize,large,Large}
+  }
+  {
+    \textendash={400,400},        % Gedankenstrich
+    \textquotedblleft={ ,120},    % öffnendes Anführungszeichen
+    \textquotedblright={170, },   % schließendes Anführungszeichen
+    "28={ ,250},                  % linke runde Klammer
+    "29={300, }                   % rechte runde Klammer
+  }
+
+
+% ============================================================
+% MS-Word-kompatible Zeilenabstände
+% ============================================================
+% Reproduziert MS Words "1,5-zeilig" und "doppelt" pro Schriftgröße.
+% Verwendung im Dokument:
+%   \MSonehalfspacing   1,5-zeilig
+%   \MSdoublespacing    doppelt
+%   \MSverbatimspacing  einzeilig (z.B. für Code/Verbatim)
+\makeatletter
+\newcommand{\MSonehalfspacing}{%
+  \setstretch{1.44}%  Fallback
+  \ifcase \@ptsize \relax % 10pt
+    \setstretch {1.448}%
+  \or % 11pt
+    \setstretch {1.399}%
+  \or % 12pt
+    \setstretch {1.433}%
+  \fi
+}
+\newcommand{\MSdoublespacing}{%
+  \setstretch {1.92}%  Fallback
+  \ifcase \@ptsize \relax % 10pt
+    \setstretch {1.936}%
+  \or % 11pt
+    \setstretch {1.866}%
+  \or % 12pt
+    \setstretch {1.902}%
+  \fi
+}
+\newcommand{\MSverbatimspacing}{%
+  \setstretch{1.44}%  Fallback
+  \ifcase \@ptsize \relax % 10pt
+    \setstretch {1}%
+  \or % 11pt
+    \setstretch {1}%
+  \or % 12pt
+    \setstretch {1}%
+  \fi
+}
+\makeatother

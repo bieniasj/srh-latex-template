@@ -1,0 +1,60 @@
+% ============================================================
+% SRH Hochschule – Hausarbeit Template
+% ============================================================
+% Schriftgrad: 11pt, Papierformat: A4
+\documentclass[a4paper, 11pt]{article}
+
+% Basispackages (Reihenfolge wichtig)
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{fontspec} % Erlaubt Systemfonts (z.B. Arial)
+\usepackage{fancyhdr} % Kopf- und Fußzeilen
+\usepackage[onehalfspacing]{setspace} % 1,5-zeiliger Abstand
+
+\graphicspath{ {./images/} }
+
+\input{settings/packages}
+\input{settings/page}
+
+\begin{document}
+	% Seitenzahl zentriert im Header, keine Linie
+	\fancyhf{} \fancyhead[C]{\thepage}
+	\renewcommand{\headrulewidth}{0pt}
+
+	% Schriftart Arial (muss auf dem System installiert sein)
+	\setmainfont{Arial}
+
+	% Titelseite
+	\input{settings/titlepage}
+
+	% ─── Ab hier Inhalt einfügen ───────────────────────────────
+
+	\justifying
+
+	\input{abstract.tex}
+	\input{toc.tex}
+	\input{acronyms.tex}
+	\input{listoffigures.tex}
+	\input{listoftables.tex}
+	\input{anlagenverzeichnis.tex} % Auskommentieren wenn kein Anhang benötigt
+
+	\clearpage
+
+	% Kapitel
+	\input{contents/01-einleitung.tex}
+	\input{contents/02-theorie.tex}
+	\input{contents/03-methode.tex}
+	\input{contents/04-ergebnisse.tex}
+	\input{contents/05-diskussion.tex}
+
+	% Literaturverzeichnis
+	\input{bib}
+
+	% Anhang (auskommentieren wenn kein Anhang benötigt)
+	\clearpage
+	\input{appendix.tex}
+
+	% ─── Ende des Dokuments ────────────────────────────────────
+	\newpage
+	{\protect\thispagestyle{fancy}}
+\end{document}

@@ -1,0 +1,107 @@
+% ============================================================
+% Kapitel 4: Ergebnisse
+% ============================================================
+
+\section{Ergebnisse}
+\label{sec:hauptteil}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugat
+nulla pariatur.
+
+\subsection{Ergebnis 1}
+\label{sec:ergebnis1}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\autocite[Vgl.][S.
+100]{muster:artikel:2022}
+
+% ── Beispiel: Abbildung ───────────────────────────────────────────────────────
+% \resizebox{0.65\textwidth}{!} für Abbildungen ohne volle Seitenbreite.
+% Der erste [] in \caption ist der Kurztitel im Abbildungsverzeichnis.
+
+\vspace{0.7cm}
+\begin{figure}[H]
+	\centering
+	\resizebox{0.65\textwidth}{!}{\includegraphics{images/example_image.png}}
+	\caption[Abbildung 3: Beispielabbildung]{Abbildung 3: Beispielabbildung (Quelle:
+	Eigene Darstellung in Anlehnung an \cite[22-48]{muster:artikel:2022})}
+	\label{fig:abbildung3}
+\end{figure}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+incididunt ut labore et dolore magna aliqua. Wie Abbildung~\ref{fig:abbildung3} zeigt,
+ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+ex ea commodo consequat.
+
+% ── Beispiel: Mehrseitige Tabelle (longtable) ────────────────────────────────
+% longtable läuft automatisch über Seitengrenzen.
+% Kopf- und Fußzeile werden auf jeder Seite wiederholt.
+% Kein \resizebox bei longtable – Breite über die Spaltenbreiten steuern.
+
+\begin{longtable}
+	{|p{3cm}|p{5.5cm}|p{4cm}|}
+	\caption[Tabelle 4: Detaillierte Übersicht]{Tabelle 4: Detaillierte Übersicht (Quelle:
+	Eigene Darstellung)}
+	\label{tab:tabelle4-longtable}\\ \hline \textbf{Spalte 1} & \textbf{Spalte 2}
+	& \textbf{Spalte 3} \\ \hline \endfirsthead \multicolumn{3}{l}{\small\textit{Fortsetzung
+	von Tabelle~\ref{tab:tabelle4-longtable}}}\\ \hline \textbf{Spalte 1} & \textbf{Spalte
+	2} & \textbf{Spalte 3} \\ \hline \endhead \hline \multicolumn{3}{r}{\small\textit{Fortsetzung
+	auf der nächsten Seite\ldots}}\\ \endfoot \hline \endlastfoot Beispiel 1 &
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. & Hoch \\ \hline
+	Beispiel 2 & Sed do eiusmod tempor incididunt ut labore et dolore magna. & Mittel
+	\\ \hline Beispiel 3 & Ut enim ad minim veniam, quis nostrud exercitation
+	ullamco. & Niedrig \\ \hline Beispiel 4 & Duis aute irure dolor in reprehenderit
+	in voluptate velit. & Hoch \\ \hline Beispiel 5 & Excepteur sint occaecat
+	cupidatat non proident, sunt. & Mittel \\ \hline
+\end{longtable}
+
+\subsection{Ergebnis 2}
+\label{sec:ergebnis2}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugat
+nulla pariatur.\autocite[Vgl.][S. 100]{muster:artikel:2022}
+
+% ── Beispiel: Zwei Abbildungen nebeneinander (minipage) ───────────────────────
+% \hfill erzeugt den Abstand zwischen den beiden minipages.
+
+\vspace{0.7cm}
+\begin{figure}[H]
+	\centering
+	\begin{minipage}[t]{0.47\textwidth}
+		\centering
+		\resizebox{\textwidth}{!}{\includegraphics{images/example_image.png}}
+		\caption[Abbildung 4: Beispiel links]{Abbildung 4: Beispiel links\\ (Quelle:
+		Eigene Darstellung)}
+		\label{fig:abbildung4-links}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.47\textwidth}
+		\centering
+		\resizebox{\textwidth}{!}{\includegraphics{images/example_image.png}}
+		\caption[Abbildung 5: Beispiel rechts]{Abbildung 5: Beispiel rechts\\ (Quelle:
+		Eigene Darstellung)}
+		\label{fig:abbildung5-rechts}
+	\end{minipage}
+\end{figure}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+ut labore et dolore magna aliqua. Wie Abbildung~\ref{fig:abbildung4-links} und
+Abbildung~\ref{fig:abbildung5-rechts} zeigen, ut enim ad minim veniam, quis
+nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+% ── Beispiel: Hervorgehobener Textblock ───────────────────────────────────────
+\begin{framed}
+	\noindent
+	\textbf{Zentrales Ergebnis:} Lorem ipsum dolor sit amet, consectetur adipiscing
+	elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\autocite[][S.
+	115]{muster:artikel:2022}
+\end{framed}
+
+\clearpage

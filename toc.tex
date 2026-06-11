@@ -1,0 +1,13 @@
+\pagestyle{fancy}
+\fancyhf{} \fancyhead[C]{\thepage}
+
+\restoregeometry
+
+% Abstaende zwischen den Zeilen im Inhaltsverzeichnis mit Stretch
+\setstretch{2} \microtypesetup{protrusion=false}
+\tableofcontents
+\microtypesetup{protrusion=true} \label{end:toc}
+
+\MSonehalfspacing
+\clearpage
+\setcounter{page}{\numexpr\getpagerefnumber{end:toc}+1\relax}

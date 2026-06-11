@@ -1,0 +1,52 @@
+% ============================================================
+% Anhang
+% ============================================================
+% Den Anhang in main.tex einkommentieren wenn benötigt.
+% Weitere Anhangdateien in appendices/ anlegen und hier einbinden.
+
+\setcounter{tocdepth}{0}
+
+\renewcommand{\appendixtocname}{Anhang}
+\addappheadtotoc
+\renewcommand{\appendixpagename}{Anhang}
+\appendix
+\appendixpage \appendixtitleoff
+
+% Nummerierung: „Anhang 1", „Anhang 1.1:", …
+\renewcommand{\thesection}{Anhang \arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}:}
+\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}:}
+
+% Unterstützung für tiefere Gliederungsebenen im Anhang
+\renewcommand{\subsubsection}[1]{%
+\stepcounter{subsubsection}%
+\setcounter{subsubsubsection}{0}%
+\paragraph{\thesubsubsection\quad#1}%
+\mbox{}\par\nobreak}
+
+\newcounter{subsubsubsection}
+\renewcommand{\thesubsubsubsection}{\thesubsubsection.\arabic{subsubsubsection}}
+
+\newcommand{\subsubsubsection}[1]{
+\refstepcounter{subsubsubsection}
+\setcounter{subsubsubsubsection}{0}
+\paragraph*{\thesubsubsubsection\quad #1 \\ \\}
+}
+
+\newcounter{subsubsubsubsection}
+\renewcommand{\thesubsubsubsubsection}{\thesubsubsubsection.\arabic{subsubsubsubsection}}
+
+\newcommand{\subsubsubsubsection}[1]{
+\refstepcounter{subsubsubsubsection}
+\paragraph*{\thesubsubsubsubsection\quad #1 \\ \\}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%Ab hier Inhalt einfügen%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{appendices/appendix_a.tex}
+
+\MSonehalfspacing
+\newpage
+\restoreapp

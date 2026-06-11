@@ -1,0 +1,16 @@
+# Ignoriere alle main.*-Dateien
+main.*
+
+# Aber nicht main.tex und main.pdf
+!main.tex
+
+# node_modules
+node_modules
+
+# word count for latex (vs code plugin)
+._wordcount_selection.tex
+
+# claude
+.claude
+
+.DS_Store

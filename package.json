@@ -1,0 +1,15 @@
+{
+  "name": "srh",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "format": "npx prettier **/*.tex --write"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "prettier-plugin-latex": "^2.0.1"
+  }
+}

@@ -1,0 +1,35 @@
+% ============================================================
+% Abkürzungsverzeichnis
+% ============================================================
+% Verwendung im Text:
+%   \ac{API}   → Beim 1. Vorkommen: Langform (Kurzform), danach: Kurzform
+%   \acs{API}  → Immer nur Kurzform
+%   \acl{API}  → Immer nur Langform
+% ============================================================
+
+\section*{Abkürzungsverzeichnis}
+\addcontentsline{toc}{section}{Abkürzungsverzeichnis}
+{\protect\thispagestyle{fancy}}
+\addtocontents{toc}{\protect\vspace{-5pt}}
+
+\vspace{0.25cm}
+
+\begin{onehalfspace}
+	\newcommand{\acroformat}[2]{\textbf{#1}\dotfill \nobreak\hspace{0.5em}#2}
+
+	\makeatletter
+	\renewcommand{\dotfill}{\leavevmode \cleaders \hb@xt@ .75em{\hss .\hss }\hfill \kern \z@}
+	\makeatother
+
+	\setstretch{0}
+
+	\begin{acronym}
+		% Syntax: \acro{KÜRZEL}[KÜRZEL]{\acroformat{}{Ausgeschriebene Bedeutung}}
+		\acro{API}[API]{\acroformat{}{Application Programming Interface}}
+		\acro{EU}[EU]{\acroformat{}{Europäische Union}}
+		\acro{IT}[IT]{\acroformat{}{Informationstechnologie}}
+		\acro{KI}[KI]{\acroformat{}{Künstliche Intelligenz}}
+		\acro{KPI}[KPI]{\acroformat{}{Key Performance Indicator}}
+		% Weitere Abkürzungen hier ergänzen …
+	\end{acronym}
+\end{onehalfspace}

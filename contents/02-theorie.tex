@@ -1,0 +1,119 @@
+% ============================================================
+% Kapitel 2: Theorie
+% ============================================================
+
+\section{Theorie}
+\label{sec:theorie}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugat
+nulla pariatur.\autocite[Vgl.][S. 100--120]{muster:artikel:2022}
+
+\subsection{Theorie 1}
+\label{sec:theorie1}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+ullamco laboris nisi ut aliquip ex ea commodo consequat.\autocite[Vgl.][S. 42]{muster:buch:2023}
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+fugat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+culpa qui officia deserunt mollit anim id est laborum.\autocite[Vgl.][S. 55]{muster:kapitel:2021}
+
+\subsubsection{Theorie 1.1}
+\label{sec:theorie1.1}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+in reprehenderit in voluptate velit esse cillum dolore eu fugat nulla pariatur.\autocite[Vgl.][S.
+42]{muster:buch:2023}
+
+\vspace{0.7cm}
+\begin{figure}[H]
+	\centering
+	\resizebox{0.8\textwidth}{!}{\includegraphics{images/example_image.png}}
+	\caption[Abbildung 1: Beispielabbildung]{Abbildung 1: Beispielabbildung (Quelle:
+	Eigene Darstellung)}
+	\label{fig:abbildung1}
+\end{figure}
+
+\subsubsection{Theorie 1.2}
+\label{sec:theorie1.2}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\autocite[Vgl.][S.
+55]{muster:kapitel:2021} Duis aute irure dolor in reprehenderit in voluptate velit
+esse cillum dolore eu fugat nulla pariatur.
+
+\subsection{Theorie 2}
+\label{sec:theorie2}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\autocites[Vgl.][S.
+42]{muster:buch:2023}[Vgl.][S. 100]{muster:artikel:2022}
+
+% ── Beispiel: Einfache Tabelle ────────────────────────────────────────────────
+% Format: |p{Xcm}| mit \hline, \resizebox{\textwidth}{!}{} für volle Seitenbreite.
+% \vspace{0.7cm} vor jeder Tabelle / Abbildung.
+
+\vspace{0.7cm}
+\begin{table}[H]
+	\centering
+	\resizebox{\textwidth}{!}{
+	\begin{tabular}{|p{3.5cm}|p{5.5cm}|p{5.5cm}|}
+		\hline
+		\textbf{Merkmal} & \textbf{Beispiel 1}                    & \textbf{Beispiel 2}                \\
+		\hline
+		Merkmal 1        & Lorem ipsum dolor sit amet             & Consectetur adipiscing elit        \\
+		\hline
+		Merkmal 2        & Sed do eiusmod tempor incididunt       & Ut labore et dolore magna aliqua   \\
+		\hline
+		Merkmal 3        & Ut enim ad minim veniam                & Quis nostrud exercitation ullamco  \\
+		\hline
+		Merkmal 4        & Duis aute irure dolor in reprehenderit & Voluptate velit esse cillum dolore \\
+		\hline
+	\end{tabular}
+	}
+	\caption[Tabelle 1: Vergleich Beispiel 1 und Beispiel 2]{Tabelle 1: Vergleich Beispiel
+	1 und Beispiel 2 (Quelle: Eigene Darstellung in Anlehnung an \cite[S. 42]{muster:buch:2023}
+	und \cite[S. 100]{muster:artikel:2022})}
+	\label{tab:tabelle1}
+\end{table}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+% ── Beispiel: Querformat-Seite für breite Tabellen / Abbildungen ──────────────
+% \begin{landscape} dreht die Seite ins Querformat (Paket lscape, bereits eingebunden).
+
+\begin{landscape}
+	\vspace{0.7cm}
+	\begin{table}[H]
+		\centering
+		\resizebox{\linewidth}{!}{
+		\begin{tabular}{|p{2.8cm}|p{2.5cm}|p{2.8cm}|p{3.5cm}|p{3.5cm}|p{3.5cm}|}
+			\hline
+			\textbf{Spalte 1} & \textbf{Spalte 2} & \textbf{Spalte 3} & \textbf{Spalte 4}      & \textbf{Spalte 5} & \textbf{Spalte 6}  \\
+			\hline
+			Beispiel 1        & Lorem             & Ipsum             & Dolor sit amet         & Consectetur       & Adipiscing elit    \\
+			\hline
+			Beispiel 2        & Sed do            & Eiusmod           & Tempor incididunt      & Ut labore         & Et dolore magna    \\
+			\hline
+			Beispiel 3        & Ut enim           & Ad minim          & Veniam quis nostrud    & Exercitation      & Ullamco laboris    \\
+			\hline
+			Beispiel 4        & Duis aute         & Irure             & Dolor in reprehenderit & Voluptate velit   & Esse cillum dolore \\
+			\hline
+		\end{tabular}
+		}
+		\caption[Tabelle 2: Detaillierter Vergleich im Querformat]{Tabelle 2: Detaillierter
+		Vergleich im Querformat (Quelle: Eigene Darstellung)}
+		\label{tab:tabelle2-querformat}
+	\end{table}
+\end{landscape}
+
+\clearpage

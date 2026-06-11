@@ -1,0 +1,235 @@
+% ============================================================
+% packages.tex – Pakete, Bibliografie und Layout-Konfiguration
+% ============================================================
+% Bereits in main.tex geladen:
+%   microtype, graphicx, fontspec, fancyhdr, setspace
+% ============================================================
+
+
+% ============================================================
+% 1. Sprache, Zitate, Datum
+% ============================================================
+\usepackage[ngerman]{babel}        % Deutsche Sprache
+\usepackage{csquotes}              % Korrekte Anführungszeichen, von biblatex benötigt
+\usepackage[iso, german]{isodate}  % Deutsches Datumsformat (für \today)
+
+
+% ============================================================
+% 2. Seitenlayout: Spacing und Hilfsmittel
+% ============================================================
+\usepackage{parskip}
+\setlength{\headheight}{15pt}
+% Großer Stretch (plus80pt) ist Absicht: erlaubt LaTeX, Absatzabstände
+% beim Float-Layout flexibel zu strecken, ohne den Text zu sperren.
+\setlength{\parskip}{11pt plus80pt minus10pt}
+% Abstand zwischen Haupttext und Fußnotenbereich
+\setlength{\skip\footins}{1.5cm}
+
+\usepackage{float}      % \begin{figure}[H] für exakte Positionierung
+\usepackage{lscape}     % Querformat-Seiten (\begin{landscape})
+\usepackage{blindtext}  % \blindtext{} für Layout-Tests
+\usepackage{easy-todo}  % \todo{Text} für Inline-Notizen
+\usepackage{refcount}   % \getpagerefnumber{} – wird in toc.tex verwendet
+
+
+% ============================================================
+% 3. Literaturverzeichnis (BibLaTeX + Biber)
+% ============================================================
+% style=ext-authoryear  Autor-Jahr-Stil mit Erweiterungen
+% autocite=footnote     \autocite{} setzt automatisch eine Fußnote
+% dashed=false          Wiederholte Autoren ausschreiben, nicht mit "—" abkürzen
+% sorting=nyt           Sortierung: Name, Year, Title
+% maxbibnames=99        bis zu 99 Autoren im Literaturverzeichnis
+% maxcitenames=2        in der Fußnote max. 2 Autoren, danach "et al."
+% mincitenames=1        in der Fußnote mind. 1 Autor
+% uniquename=init       Vornamen-Initialen bei Namensgleichheit
+% giveninits=true       Vornamen werden zu Initialen gekürzt
+\usepackage[
+  style=ext-authoryear,
+  autocite=footnote,
+  dashed=false,
+  sorting=nyt,
+  maxbibnames=99,
+  maxcitenames=2,
+  mincitenames=1,
+  uniquename=init,
+  giveninits=true,
+]{biblatex}
+
+% Klammer um die Jahreszahl in der Fußnote
+\DeclareInnerCiteDelims{footcite}{\bibopenparen}{\bibcloseparen}
+
+% Slash zwischen Autoren in der Fußnote
+\renewcommand*{\multinamedelim}{\addslash}
+\renewcommand*{\finalnamedelim}{\multinamedelim}
+
+% Doppelpunkt nach Autorname im Literaturverzeichnis
+\DeclareDelimFormat[bib]{nametitledelim}{\addcolon\space}
+
+% URL-Präfix
+\DeclareFieldFormat{url}{Verfügbar unter: \urlstyle{same}\url{#1}}
+
+% Titel ohne Hervorhebung, Journaltitel kursiv
+\DeclareFieldFormat{title}{{#1}}
+\DeclareFieldFormat{journaltitle}{\mkbibemph{#1}}
+
+% Sortierung nach "Nachname, Vorname"
+\DeclareNameAlias{sortname}{family-given}
+
+% "Jg." statt Standard-Präfix für Journal-Volumen / Heftnummer
+\DeclareFieldFormat[article]{volume}{\bibstring{jourvol}\addnbspace #1}
+\DeclareFieldFormat[article]{number}{\bibstring{number}\addnbspace #1}
+
+% Deutsche Strings anpassen
+\DefineBibliographyStrings{ngerman}{
+  jourvol   = {Jg\adddot},
+  andothers = {{et al\adddot}},
+}
+
+% Abstand zwischen Bibliographie-Einträgen
+\setlength{\bibitemsep}{9pt}
+
+% Optional: Alle Quellen anzeigen, auch nicht zitierte
+% \nocite{*}
+
+% Einbinden der Literaturdateien
+\input{bibliographies/resources/bibresources.tex}
+
+
+% ============================================================
+% 4. Tabellen
+% ============================================================
+\usepackage{booktabs}
+\usepackage{longtable}  % Tabellen über mehrere Seiten
+\usepackage{multirow}   % Verbundene Zeilen in Tabellen
+\usepackage{array}
+\renewcommand{\arraystretch}{1.5}  % Erhöht Zeilenabstand in Tabellen
+\newcolumntype{P}[1]{>{\RaggedRight\arraybackslash}p{#1}}  % linksbündige p-Spalte
+
+
+% ============================================================
+% 5. URLs und Hyperlinks
+% ============================================================
+\usepackage{xurl}              % URL-Umbruch an beliebigen Stellen
+\urlstyle{same}                % URLs im Stil der Grundschrift
+\usepackage[hidelinks]{hyperref}  % Klickbare, aber unsichtbare Links
+
+
+% ============================================================
+% 6. Seitenränder
+% ============================================================
+% SRH-Vorgabe: 4 cm links (Korrekturrand), 2 cm rechts, 2,5/2 cm oben/unten
+\usepackage[right=2cm, left=4cm, top=2.5cm, bottom=2cm]{geometry}
+
+
+% ============================================================
+% 7. Aufzählungen, Mathematik, Boxen
+% ============================================================
+\usepackage{enumitem}
+\usepackage{ragged2e}
+\usepackage{amsmath}
+\usepackage{framed}    % \begin{framed} – Rahmen um Textblöcke
+
+% Engere itemize-Variante mit minimalem Abstand
+\newenvironment{tightitemize}
+  {\begin{itemize}\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}\setlength{\parsep}{0pt}}
+  {\end{itemize}}
+
+
+% ============================================================
+% 8. Abkürzungsverzeichnis
+% ============================================================
+% nohyperlinks   keine Sprunglinks im Text
+% printonlyused  nur tatsächlich verwendete Abkürzungen drucken
+\usepackage[nohyperlinks, printonlyused]{acronym}
+
+
+% ============================================================
+% 9. Bildunterschriften (captions)
+% ============================================================
+% raggedright + singlelinecheck=false: Captions immer linksbündig,
+% auch wenn sie nur eine Zeile lang sind.
+% font=small, format=hang: kleine Schrift, Folgezeilen unter den Text eingerückt.
+\usepackage[
+  justification=raggedright,
+  singlelinecheck=false,
+  font=small,
+  format=hang,
+]{caption}
+
+% Trennzeichen "Tabelle 1:" mit Doppelpunkt + Tabulator-Abstand
+\DeclareCaptionLabelSeparator{colonquad}{: \quad}
+\captionsetup{labelsep=colonquad}
+
+% Caption für longtable ebenfalls linksbündig
+\captionsetup[longtable]{justification=raggedright, singlelinecheck=false}
+
+% longtable-Kasten und Caption am linken Textblock ausrichten
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\setlength{\LTcapwidth}{\textwidth}
+
+
+% ============================================================
+% 10. Anhang
+% ============================================================
+\usepackage{appendix}
+\usepackage{etoolbox}  % wird für \apptocmd im Anhang verwendet
+
+
+% ============================================================
+% 11. Inhaltsverzeichnis (TOC, LOF, LOT)
+% ============================================================
+\usepackage{etoc}
+\renewcommand{\etocaftertitlehook}{\pagestyle{fancy}}
+\renewcommand{\etocaftertochook}{\thispagestyle{fancy}}
+
+% Seitenstil für Verzeichnis-Seiten: Seitenzahl mittig, keine Trennlinie
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyhead[C]{\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+\usepackage{tocloft}
+
+% Präfix "Tabelle X:" im Tabellenverzeichnis
+\renewcommand{\cfttabpresnum}{Tabelle }
+\renewcommand{\cfttabaftersnum}{:}
+\renewcommand{\cfttabnumwidth}{6.5em}
+\setlength{\cfttabindent}{0pt}
+
+% Präfix "Abbildung X:" im Abbildungsverzeichnis
+\renewcommand{\cftfigpresnum}{Abbildung }
+\renewcommand{\cftfigaftersnum}{:}
+\renewcommand{\cftfignumwidth}{8em}
+\setlength{\cftfigindent}{0pt}
+
+
+% ============================================================
+% 12. Anlagenverzeichnis (eigenes \listof)
+% ============================================================
+% Definiert ein neues Verzeichnis "Anlage" mit eigener Nummerierung.
+% Verwendung im Anhang: \Anlage{Titel} → fügt einen Eintrag hinzu.
+% Wichtig: \newlistof benötigt einen LEEREN Titel-Parameter, weil die
+% Überschrift separat per \section* aus anlagenverzeichnis.tex kommt.
+\newlistof{Anlage}{ana}{}
+
+% Nummerierung arabisch (1, 2, 3, …)
+\renewcommand*{\theAnlage}{\arabic{Anlage}}
+
+% Darstellung im Verzeichnis: Prefix "Anhang", Doppelpunkt, Spacing wie Tab/Abb
+\renewcommand{\cftAnlagepresnum}{Anhang }
+\renewcommand{\cftAnlageaftersnum}{:}
+\renewcommand{\cftAnlagenumwidth}{6.5em}
+\setlength{\cftAnlageindent}{0pt}
+\renewcommand{\cftAnlagedotsep}{\cftdotsep}
+\renewcommand{\cftAnlagefont}{\normalfont}
+\renewcommand{\cftAnlagepagefont}{\normalfont}
+
+% Befehl zum Hinzufügen eines Eintrags
+\newcommand{\Anlage}[1]{%
+  \refstepcounter{Anlage}%
+  \addcontentsline{ana}{Anlage}{\protect\numberline{\theAnlage}#1}%
+}

@@ -1,0 +1,12 @@
+% --- Hier beginnt die Ausgabe des Anlagenverzeichnisses ---
+% \clearpage % Sorgt für einen Seitenumbruch vor dem Anlagenverzeichnis
+\section*{Anlagenverzeichnis} % <--- Erstellt die ÜBERSCHRIFT in korrekter Größe
+\addcontentsline{toc}{section}{Anlagenverzeichnis} % Fügt "Anlagenverzeichnis" ins Haupt-Inhaltsverzeichnis ein
+% Das \addtocontents mit \protect\thispagestyle{fancy} aus der letzten Version kannst du lassen,
+% falls es für die Kopfzeile des Verzeichnisses notwendig ist.
+\addtocontents{toc}{\protect
+\thispagestyle{fancy}}
+\vspace{-0.7cm}
+\listofAnlage % <--- Druckt den INHALT des Anlagenverzeichnisses
+\clearpage % Sorgt für einen Seitenumbruch nach dem Anlagenverzeichnis
+% --- Ende der Ausgabe des Anlagenverzeichnisses ---
