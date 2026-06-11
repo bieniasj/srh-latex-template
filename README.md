@@ -8,11 +8,11 @@ Ein LaTeX-Template für Haus- und Abschlussarbeiten an der SRH Hochschule. Das T
 
 <table>
   <tr>
-    <td><img src="images/preview/01-titelseite.png" alt="Titelseite"></td>
-    <td><img src="images/preview/02-einleitung.png" alt="Einleitung"></td>
-    <td><img src="images/preview/03-abbildung.png" alt="Seite mit Abbildung"></td>
-    <td><img src="images/preview/04-tabelle.png" alt="Seite mit Tabelle"></td>
-    <td><img src="images/preview/05-literaturverzeichnis.png" alt="Literaturverzeichnis"></td>
+    <td><img src="images/preview/01-titelseite.png" width="180" alt="Titelseite"></td>
+    <td><img src="images/preview/02-einleitung.png" width="180" alt="Einleitung"></td>
+    <td><img src="images/preview/03-abbildung.png" width="180" alt="Seite mit Abbildung"></td>
+    <td><img src="images/preview/04-tabelle.png" width="180" alt="Seite mit Tabelle"></td>
+    <td><img src="images/preview/05-literaturverzeichnis.png" width="180" alt="Literaturverzeichnis"></td>
   </tr>
   <tr>
     <td align="center"><sub>Titelseite</sub></td>
